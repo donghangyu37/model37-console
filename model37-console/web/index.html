@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no"/>
+  <title>37号预测模型 - 控制台</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:16px;max-width:820px;margin:auto}
+    h1{font-size:20px;margin:8px 0 16px}
+    .row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    button{padding:10px 14px;border:1px solid #ccc;border-radius:8px;background:#fafafa}
+    input{padding:10px;border:1px solid #ccc;border-radius:8px;width:100%}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{border:1px solid #eee;padding:8px;font-size:14px}
+    th{background:#f7f7f7}
+    .hint{font-size:12px;color:#666}
+  </style>
+</head>
+<body>
+  <h1>37号预测模型 · 手机控制台</h1>
+
+  <div class="row">
+    <input id="token" type="password" placeholder="输入访问令牌（在 .env 设置的 API_TOKEN）"/>
+  </div>
+
+  <div class="row">
+    <button onclick="runToday()">运行今天预测</button>
+    <button onclick="loadToday()">查看今日价值比赛</button>
+    <button onclick="downloadCSV()">下载CSV</button>
+  </div>
+
+  <div id="msg" class="hint"></div>
+  <div id="table"></div>
+
+  <script src="/web/main.js"></script>
+</body>
+</html>
