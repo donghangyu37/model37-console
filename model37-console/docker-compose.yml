@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  model37:
+    build: .
+    container_name: model37-console
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./reports:/app/reports

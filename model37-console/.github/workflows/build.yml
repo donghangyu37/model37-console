@@ -1,0 +1,30 @@
+name: Build Desktop
+on:
+  workflow_dispatch: {}
+
+jobs:
+  win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -r requirements.txt pyinstaller PySide6 requests
+      - run: pyinstaller -F -w gui_pyside6.py -n Model37_GUI
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Model37_GUI_Windows
+          path: dist/Model37_GUI.exe
+
+  mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -r requirements.txt pyinstaller PySide6 requests
+      - run: pyinstaller -F -w gui_pyside6.py -n Model37_GUI
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Model37_GUI_macOS
+          path: dist/Model37_GUI
